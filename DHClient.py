@@ -1,13 +1,16 @@
 def expMod(n, x, p):
+    n=int(n)
+    x=int(x)
+    p=int(p)
     if x == 0:
         return 1
     else:
-        if (x and 1) != 0:
-            r = expMod(n, x - 1, p)
-            return (n * r) % p
+        if (x & 1) != 0:
+            r = expMod(n, (x - 1), p)
+            return ((n * r) % p)
         else:
-            r = expMod(n, x / 2, p)
-            return (r * r) % p
+            r = expMod(n, (x / 2), p)
+            return ((r * r) % p)
 
 
 n = int(input("Introduce N: "))
